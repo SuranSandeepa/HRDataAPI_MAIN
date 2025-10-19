@@ -1,0 +1,24 @@
+--- Global Ignores for ASP.NET and Angular ---
+
+Binaries/Build Output
+
+bin/
+obj/
+*.bak
+
+ASP.NET Core
+
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+appsettings.Development.json # Usually contains secrets
+/wwwroot/
+
+Node/Angular
+
+/node_modules
+/dist
+npm-debug.log
+yarn-error.log
+.angular/
