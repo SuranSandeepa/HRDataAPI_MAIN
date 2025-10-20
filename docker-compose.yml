@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  hr-api:
+    container_name: hr_api_container
+    build:
+      context: ./HRDataAPI
+      dockerfile: Dockerfile
+    ports:
+      # Map host port 5120 to container port 80 (where ASP.NET app listens)
+      - "5120:80"
+    restart: always
+
+  hr-frontend:
+    container_name: hr_frontend_container
+    build:
+      context: ./hr-frontend
+      dockerfile: Dockerfile
+    ports:
+      # Map host port 4200 to container port 80 (where Nginx listens)
+      - "4200:80"
+    # Ensure the frontend starts only after the backend is running
+    depends_on:
+      - hr-api
+    restart: always
